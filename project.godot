@@ -1,0 +1,40 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="InfiniJump"
+run/main_scene="res://Level.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=144
+window/size/height=256
+window/size/test_width=720
+window/size/test_height=1080
+window/handheld/orientation="portrait"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+quality/2d/use_pixel_snap=true
+environment/default_clear_color=Color( 0.403922, 0.403922, 0.403922, 1 )
+environment/default_environment="res://default_env.tres"
