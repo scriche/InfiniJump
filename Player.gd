@@ -52,8 +52,9 @@ func _physics_process(delta):
 	if is_on_wall():
 		#velocity.y = 0
 		if velocity.y < 25:
-			velocity.y += 0.1	
-		particles2D.emitting = true
+			velocity.y += 0.1
+			if velocity.y > 6:
+				particles2D.emitting = true
 		
 	else:
 		if velocity.y < 85:
