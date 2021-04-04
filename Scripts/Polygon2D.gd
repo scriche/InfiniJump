@@ -11,7 +11,7 @@ func _ready():
 
 
 
-func _process(delta):
+func _process(_delta):
 	#if (position != Vector2(sin(position.x), positon.y)):
 	position.x = move_toward(position.x, position.x+0.05, 2)
 	position.y = move_toward(position.y, sin(position.x) + position.y, 2)
