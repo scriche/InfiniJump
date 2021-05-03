@@ -108,7 +108,7 @@ animation = "idle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( -77, -426 )
-polygon = PoolVector2Array( 75, 423, 75, 426, 75, 429, 79, 429, 79, 423 )
+polygon = PoolVector2Array( 75, 425, 75, 426, 75, 429, 79, 429, 79, 425 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 emitting = false

@@ -66,10 +66,6 @@ func _physics_process(delta):
 	#hit detection for anything and for specific tileset tiles
 	for i in get_slide_count():
 		collision = get_slide_collision(i)
-		if collision.collider isnot TileMap:
-			print(collision.collider)
-		if collision.collider.is_in_group("enemy"):
-			respawn()
 		if collision.collider is TileMap:
 			var tile_pos = collision.collider.world_to_map(position)
 			tile_pos -= collision.normal
@@ -77,11 +73,13 @@ func _physics_process(delta):
 			var tile_name = collision.collider.tile_set.tile_get_name(tile_id)
 			if tile_name == "spike":
 				respawn()
+		elif collision.collider_shape.is_in_group("enemy"):
+			respawn()
 	
 	#Sending position up the line to the camera so it can track the player
 	emit_signal("moved", position)
 	
-	#once and velocity calculation are added move to player
+	#once and velocity calculation are added move the player
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 func _on_touchzone_pressed():

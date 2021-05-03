@@ -2,7 +2,7 @@
 
 [ext_resource path="res://sprites/tileset.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Walker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Enemys/Walker_Bouncetop.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Polygon2D.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/timer.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/timercontrol.gd" type="Script" id=9]
@@ -251,8 +251,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Walker" parent="." instance=ExtResource( 3 )]
-position = Vector2( 58, 238 )
+[node name="Walker_Bouncetop" parent="." instance=ExtResource( 3 )]
+position = Vector2( 48, 240 )
 [connection signal="moved" from="Game/Player" to="UI/Camera2D" method="_on_Player_moved"]
 [connection signal="reset" from="Game/Player" to="UI/Camera2D/Label" method="_on_Player_reset"]
 [connection signal="timeout" from="UI/Camera2D/Label/Timer" to="UI/Camera2D/Label" method="_on_Timer_timeout"]

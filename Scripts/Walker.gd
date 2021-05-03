@@ -31,3 +31,6 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		velocity = velocity.slide(collision.normal)
+		if self.get_name() == "Walker_Bouncetop":
+			if collision.collider.get_name() == "Player":
+				print("HIT")
