@@ -18,6 +18,7 @@ func _ready():
 	startpos = position
 
 func respawn():
+	#Call this function the respawn play and reset timer
 	position = startpos
 	direction = 1
 	emit_signal("reset")
@@ -45,6 +46,7 @@ func jump():
 			velocity.y = JUMP_POWER
 
 func _physics_process(delta):
+	#Hit wall and flip dirrection detection
 	if is_on_floor() and is_on_wall() and collision.collider.get_name() == "TileMap":
 		if direction == 0:
 			direction = 1
@@ -75,6 +77,8 @@ func _physics_process(delta):
 				respawn()
 		elif collision.collider_shape.is_in_group("enemy"):
 			respawn()
+		elif collision.collider_shape.is_in_group("bouncy"):
+			velocity = -240
 	
 	#Sending position up the line to the camera so it can track the player
 	emit_signal("moved", position)

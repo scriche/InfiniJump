@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Walker.gd" type="Script" id=1]
 [ext_resource path="res://sprites/p_idle.png" type="Texture" id=2]
@@ -19,9 +19,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 2, 3 )
-
 [node name="Walker" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -32,8 +29,8 @@ frames = SubResource( 3 )
 enabled = true
 cast_to = Vector2( 3, 0 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=[
 "enemy",
 ]]
 position = Vector2( 0, 1 )
-shape = SubResource( 4 )
+polygon = PoolVector2Array( -2, -3, -2, 3, 2, 3, 2, -3 )
