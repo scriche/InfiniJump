@@ -1,17 +1,22 @@
 extends KinematicBody2D
 
 onready var ray = $RayCast2D
-onready var sight = $Sight
 onready var sprite = $AnimatedSprite
 onready var col = $CollisionPolygon2D
-onready var timer = $Timer
 onready var player = $"/root/Level/Game/Player"
+var sight
+var timer
 const GRAVITY = 400
 const SPEED = 2000
 var velocity = Vector2.ZERO
 var direction = 1
 var chargepos
 
+func _ready():
+	if self.get_name() == "Rammer":
+		timer = get_node("Timer")
+		sight = get_node("Sight")
+	
 func _physics_process(delta):
 	
 #	Movement Code for left are right movement

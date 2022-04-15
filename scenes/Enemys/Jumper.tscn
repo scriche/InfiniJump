@@ -3,7 +3,6 @@
 [ext_resource path="res://sprites/jumper.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Jumper.gd" type="Script" id=2]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],

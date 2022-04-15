@@ -8,7 +8,7 @@ onready var col = $CollisionPolygon2D
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	chain.set_point_position(1, ball.position)
 	chain.set_point_position(0, base.position)
 	col.position = ball.position

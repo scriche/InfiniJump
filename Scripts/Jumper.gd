@@ -7,7 +7,7 @@ var velocity = Vector2.ZERO
 const GRAVITY = 400
 const SPEED = 2000
 var direction = 0
-var cooldown
+var cooldown = 1
 func _ready():
 	pass
 
@@ -40,7 +40,6 @@ func _physics_process(delta):
 			cooldown = 0.4
 		else:
 			cooldown = 1
-	print(cooldown)
 	
 func jump():
 	if sight.is_colliding():

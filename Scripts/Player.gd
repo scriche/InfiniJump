@@ -8,7 +8,7 @@ onready var particles2D = $Particles2D
 var start
 var velocity = Vector2.ZERO
 var startpos
-var jumps = 0
+var jumps = 1
 var collision
 
 signal moved
@@ -31,8 +31,6 @@ func run(delta):
 		velocity.x -= delta * SPEED
 
 func jump():
-		start = true
-		
 		#if you jump off a wall switch directions 
 		if is_on_wall() && !is_on_floor():
 			velocity.y = JUMP_POWER
@@ -46,15 +44,15 @@ func jump():
 			velocity.y = JUMP_POWER
 
 func _physics_process(delta):
+	print(jumps)
 	#Hit wall and flip dirrection detection
-	if is_on_floor() and is_on_wall() and collision.collider.get_name() == "TileMap":
+	if is_on_floor() and is_on_wall() and collision.collider is TileMap:
 		if direction == 0:
 			direction = 1
 		else:
 			direction = 0
-	#A jump start method to start running only if jump has been press once
-	if start:
-		run(delta)
+	
+	run(delta)
 		
 	#Gravity for wall and normal
 	if is_on_wall() && velocity.y > 10:
@@ -69,16 +67,17 @@ func _physics_process(delta):
 	for i in get_slide_count():
 		collision = get_slide_collision(i)
 		if collision.collider is TileMap:
-			var tile_pos = collision.collider.world_to_map(position)
+			var tile_pos = collision.collider.world_to_map(collision.collider.to_local(position))
 			tile_pos -= collision.normal
 			var tile_id = collision.collider.get_cellv(tile_pos)
+			#print(tile_id)
 			var tile_name = collision.collider.tile_set.tile_get_name(tile_id)
 			if tile_name == "spike":
 				respawn()
 		elif collision.collider_shape.is_in_group("enemy"):
 			respawn()
 		elif collision.collider_shape.is_in_group("bouncy"):
-			velocity = -240
+			velocity.y = -240
 	
 	#Sending position up the line to the camera so it can track the player
 	emit_signal("moved", position)
