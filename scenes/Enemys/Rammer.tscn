@@ -32,4 +32,10 @@ cast_to = Vector2( 100, 0 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2( 4, 2 )
+enabled = true
+cast_to = Vector2( 0, 3 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

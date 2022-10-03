@@ -6,7 +6,7 @@ onready var base = $Base
 onready var col = $CollisionPolygon2D
 
 func _ready():
-	pass
+	ball.position = base.position + (ball.position - base.position).rotated(randf())
 
 func _process(_delta):
 	chain.set_point_position(1, ball.position)

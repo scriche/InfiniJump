@@ -43,8 +43,9 @@ func _ready():
 		
 		#Spawning of enemys and double jumps
 		for _y in range(randi() % 4):
-			var entity = entitys[randi() % len(entitys)]
-			var insstance = entity.instance()
+			#var entity = entitys[randi() % len(entitys)]
+			#var insstance = entity.instance()
+			var insstance = entitys[0].instance()
 			get_parent().call_deferred("add_child",insstance)
 			while true:
 				spawnpos = Vector2(global_position.x + randi()%RWIDTH, global_position.y - randi()%RHIGHT)

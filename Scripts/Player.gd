@@ -44,7 +44,6 @@ func jump():
 			velocity.y = JUMP_POWER
 
 func _physics_process(delta):
-	print(jumps)
 	#Hit wall and flip dirrection detection
 	if is_on_floor() and is_on_wall() and collision.collider is TileMap:
 		if direction == 0:

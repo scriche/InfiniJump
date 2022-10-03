@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/TileSpawner.gd" type="Script" id=3]
+[ext_resource path="res://sprites/pause.jpg" type="Texture" id=4]
 [ext_resource path="res://Scripts/timer.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/timercontrol.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/camerafollow.gd" type="Script" id=10]
@@ -76,9 +77,11 @@ script = ExtResource( 9 )
 pause_mode = 2
 margin_left = 117.0
 margin_top = 2.0
-margin_right = 136.0
-margin_bottom = 22.0
+margin_right = 603.0
+margin_bottom = 482.0
+rect_scale = Vector2( 0.05, 0.05 )
 toggle_mode = true
+icon = ExtResource( 4 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
